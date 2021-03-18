@@ -1,0 +1,35 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.jboss.arquillian.gradle:arquillian-gradle-plugin:0.1'
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+group 'pie.ilikepiefoo2'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.13'
+    testCompile group: 'org.jboss.arquillian', name: 'arquillian-junit', version: '1.0.0.Alpha4'
+    testCompile group: 'org.jboss.arquillian.container', name: 'arquillian-container-test-api', version: '1.1.6.Final'
+    //https://repo.maven.apache.org/maven2/org/jboss/arquillian/container/arquillian-container-test-api/1.1.6.Final/arquillian-container-test-api-1.1.6.Final.jar
+    //https://repo.maven.apache.org/maven2/org/jboss/arquillian/arquillian-container-test-api/1.1.6.Final/arquillian-container-test-api-1.1.6.Final.pom
+}
+test {
+    useJUnit()
+
+    maxHeapSize = '1G'
+}
